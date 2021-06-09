@@ -1,0 +1,9 @@
+Mor 28
+Tatabanya 50
+Tata 45
+Nagykanizsa 345
+Nevyork 5000
+London 20
+Berlin 1000
+Moszkva 1100
+Aba 20

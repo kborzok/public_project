@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>A föld keringése</title>
+        <meta http-equiv="imagetoolar" content="no">
+        <style>
+            body
+            {
+                background: black url('/pics/sky.jpg');
+                background-repeat: repeat;
+                background-position: 0 0;
+            }
+            #nap, #fold, #hold
+            {
+                position: absolute;
+                z-index: 0;
+            }
+        </style>
+    </head>
+    <body id="lap" onLoad=" a=b=0; bgx=bgy=0; kering();">
+        <div id="nap">
+            <img src="/pics/sun.gif" width=200 height=200>
+            <div id="fold">
+                <img src="/pics/earth.gif" width=68 height=68>
+                <div id="hold">
+                    <img src="/pics/moon.gif" width=20 height=20>
+                </div>
+            </div>
+        </div>
+        <script>
+            function kering(){
+                szelesseg = window.innerWidth;
+                magassag = window.innerHeight;
+
+                nap.style.left = szelesseg / 2 - 100+"px";
+                nap.style.top = magassag / 2 - 100+"px";
+
+                fold.style.left = 250*Math.cos(a)+66+"px";
+                fold.style.top = 150*Math.sin(a)+66+"px";
+
+                hold.style.left = 50*Math.cos(b)+24+"px";
+                hold.style.top = 30*Math.sin(b)+24+"px";
+                if (parseInt(hold.style.left)<-48+24) hold.style.zIndex=+1;
+                if (parseInt(hold.style.left)>+48+24) hold.style.zIndex=-1;
+
+                a = a-.002;
+                b = b-.024;
+
+                document.body.style.backgroundPosition = bgx + "px " + bgy + "px";
+
+                bgx = bgx+.25;
+                bgy = bgy-.125;
+
+                setTimeout("kering()"               
+                , 25);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+body{
+    margin: 20px;
+    border-style: dashed;
+    padding: 15px;
+    border-width: 5px;
+    border-color: red;
+}
+.par1 {
+    margin: 10px ;
+    padding: 15px ;
+    border: 10px solid transparent;
+    border-image: url(border.png) 30 round;
+}
+.par2 {
+    margin: 0 ;
+    padding: 10px ;
+    border: 20px solid transparent;
+    border-image: url(/pics/image1.jpg) 30 stretch;
+}
+.div1 {
+    margin: 20px;
+    border-style: dashed;
+    border-color: aqua;
+    padding: 15px;
+}
+h2 {
+    margin: 0px;
+}
+.himage {
+        background-image: url(/pics/image1.jpg);
+        height: 200px;
+        margin: 0;
+        padding: 0;
+}

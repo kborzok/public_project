@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascrip</title>
+</head>
+<body>
+       
+    <h2>JavaScript példák</h2>
+
+<form name='form1'>
+    1. szám: <input type="number" name="SZAM1" value="0">
+    2. szám: <input type="number" name="SZAM2" value="0">
+    <input type="button" value="Ok" onclick="return teszt();">
+</form>
+<div id="keret1"></div>
+
+<!-- <script src="script.js"></script> -->
+<script>
+function teszt() {
+    var szam1 = parseFloat(document.form1.SZAM1.value);
+    var szam2 = parseFloat(document.form1.SZAM2.value);
+    document.getElementById('keret1').innerHTML='Összegük='+(szam1+szam2)+
+    '<br>Különbségük='+(szam1-szam2)+'<br>Szorzatuk='+(szam1*szam2) +
+    '<br>Hányadosuk='+(szam1/szam2)+'<br>Hatványuk='+(szam1**szam2);
+}
+</script>
+</body>
+</html>

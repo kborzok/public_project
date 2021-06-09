@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Mértékegység átváltás</title>
+</head>
+<body class="bg-light">
+    <div class='container'>
+        <h1 class="display-4 mt-5 mb-5 text-secondary">Átváltás</h1>
+        <p class="h5 mb-5 mt-5 text-info">Farenheit to Celsius</p>
+        <form name='form1'>
+            <div class='form-group'>
+                <label>Farenheit:</label> 
+                <input id='faren' type="number" name="FARENHEIT">
+                <label>to Celsius: </label>
+                <input id='cels' type="number" name="CELSIUS" readonly> 
+                <input type="button" class="btn btn-primary" value="Átáltás" onclick="return FtoC();">
+            </div>
+            <div class='form-group'>
+                Farenheit:  <input id='faren1' type="number" name="FARENHEIT1" onchange="FtoC1();">
+                to Celsius: <input id='cels1' type="number" name="CELSIUS1" onchange="CtoF1();">     
+            </div>     
+        </form>
+    </div>
+    
+      <script src="/script/atvalto.js"></script
+</body>
+</html>
