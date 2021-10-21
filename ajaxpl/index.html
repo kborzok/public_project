@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Szókereső</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+</head>
+<style>
+    table,th,td {
+      border : 1px solid black;
+      border-collapse: collapse;
+    }
+    th,td {
+      padding: 5px;
+    }
+    </style>
+<body>
+<h1>AJAX</h1>
+<img src='gyumolcsok.jpg'><br>
+<input type="button" onclick="frissit()" value="Frissit">
+<input type="button" onclick="loadDoc()" value="cdkatalog">
+<span id = lista></span><table id="cdek"></table>
+ 
+<script>
+function frissit(){
+    httpRequest = new XMLHttpRequest();
+ 
+ httpRequest.onreadystatechange = alertContents;
+ httpRequest.open('GET', "ker.php");
+ httpRequest.send();
+}
+ 
+function alertContents() {
+    let text;
+    let sz;
+    if (httpRequest.readyState === 4) {
+        if (httpRequest.status === 200) {
+            var $ez = JSON.parse(httpRequest.responseText);
+            console.log(httpRequest.responseText);
+            //alert($ez[3]['szo']);
+            console.log($ez);
+            text='<ul>';
+            for ( let i=0; i < $ez.length ;i++ ){
+                sz=$ez[i]['szo'];
+                text += '<li>' + sz + '</li>' ;
+            }
+            text += '</ul>';
+            document.getElementById('lista').innerHTML = text;
+
+        } else {
+            alert('A probléma a lekérés során!');
+        }
+    }
+}    
+ 
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    myFunction(this);
+  }
+  xhttp.open("GET", "cd_catalog.xml");
+  xhttp.send();
+}
+function myFunction(xml) {
+  const xmlDoc = xml.responseXML;
+  const x = xmlDoc.getElementsByTagName("CD");
+  let table="<tr><th>Artist</th><th>Title</th></tr>";
+  for (let i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("cdek").innerHTML = table;
+}
+ 
+</script>    
+ 
+</body>
+</html>
+
